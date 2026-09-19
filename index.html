@@ -1,0 +1,1277 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liliana | Psicologia & Neuropsicologia</title>
+    
+    <!-- Google Fonts: Plus Jakarta Sans for authentic Airbnb clean feel -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        :root {
+            /* Airbnb Palette & Tokens */
+            --bg-main: #F7F7F7;
+            --bg-card: #FFFFFF;
+            --text-primary: #222222;
+            --text-secondary: #717171;
+            --text-muted: #B0B0B0;
+            --border-light: #EBEBEB;
+            --border-medium: #DDDDDD;
+            --brand-accent: #2D5A27; /* Forest/Sage Green for Psychology & Calming tone */
+            --brand-accent-hover: #1E3D1A;
+            --brand-soft: #F0F7F0;
+            --badge-red: #C13515;
+            --badge-red-bg: #FFF0ED;
+            --star-gold: #FFB400;
+            
+            /* Elevation Shadows */
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.08);
+            --shadow-md: 0 6px 16px rgba(0,0,0,0.08);
+            --shadow-lg: 0 12px 24px rgba(0,0,0,0.12);
+            --shadow-floating: 0 16px 32px rgba(0,0,0,0.15);
+
+            /* Radius Tokens */
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            --radius-pill: 50px;
+
+            /* Spacing & Layout */
+            --max-width: 1120px;
+            --transition-smooth: all 0.25s cubic-bezier(0.2, 0, 0, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.5;
+            overflow-x: hidden;
+            padding-bottom: 60px;
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .header {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-light);
+            z-index: 100;
+            padding: 16px 0;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--text-primary);
+        }
+
+        .logo-badge {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--brand-accent);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .logo-text {
+            font-weight: 700;
+            font-size: 1.15rem;
+            letter-spacing: -0.02em;
+        }
+
+        .logo-subtext {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+            display: block;
+        }
+
+        .header-cta {
+            background: var(--text-primary);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: var(--radius-pill);
+            font-weight: 600;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .header-cta:hover {
+            transform: scale(1.02);
+            background: #000;
+        }
+
+        .hero-section {
+            padding: 48px 0 64px;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        @media (min-width: 992px) {
+            .hero-grid {
+                grid-template-columns: 1.25fr 0.95fr;
+                gap: 56px;
+            }
+        }
+
+        /* Airbnb Pill Tag */
+        .airbnb-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-medium);
+            padding: 8px 16px;
+            border-radius: var(--radius-pill);
+            font-size: 0.825rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 24px;
+        }
+
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--badge-red);
+            border-radius: 50%;
+            box-shadow: 0 0 0 0 rgba(193, 53, 21, 0.4);
+            animation: pulse 1.8s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(193, 53, 21, 0.5); }
+            70% { box-shadow: 0 0 0 8px rgba(193, 53, 21, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(193, 53, 21, 0); }
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -0.03em;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+        }
+
+        @media (min-width: 768px) {
+            .hero-title {
+                font-size: 3.25rem;
+            }
+        }
+
+        .hero-subtitle {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+            line-height: 1.6;
+            margin-bottom: 32px;
+        }
+
+        /* Airbnb-style Booking Card Widget */
+        .booking-widget {
+            background: var(--bg-card);
+            border: 1px solid var(--border-medium);
+            border-radius: var(--radius-xl);
+            padding: 28px;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+        }
+
+        .widget-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-light);
+            margin-bottom: 20px;
+        }
+
+        .widget-price-title {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .widget-price-sub {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .widget-rating {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        .star-icon {
+            fill: var(--star-gold);
+            color: var(--star-gold);
+            width: 16px;
+            height: 16px;
+        }
+
+        .rating-count {
+            color: var(--text-secondary);
+            font-weight: 500;
+            text-decoration: underline;
+        }
+
+        /* Airbnb Grid Input Boxes inside Widget */
+        .booking-inputs-grid {
+            border: 1px solid var(--border-medium);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .input-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            border-bottom: 1px solid var(--border-medium);
+        }
+
+        .input-box {
+            padding: 12px 16px;
+            background: #FFF;
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+
+        .input-box:hover {
+            background: #F9F9F9;
+        }
+
+        .input-box:first-child {
+            border-right: 1px solid var(--border-medium);
+        }
+
+        .input-box-full {
+            padding: 12px 16px;
+            background: #FFF;
+        }
+
+        .input-label {
+            font-size: 0.65rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-primary);
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .input-val {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .select-custom {
+            width: 100%;
+            border: none;
+            outline: none;
+            background: transparent;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            cursor: pointer;
+        }
+
+        .scarcity-banner {
+            background: var(--badge-red-bg);
+            border: 1px solid rgba(193, 53, 21, 0.2);
+            border-radius: var(--radius-sm);
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            color: var(--badge-red);
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* Primary Action Airbnb Pill Button */
+        .btn-airbnb-primary {
+            width: 100%;
+            background: linear-gradient(135deg, #2D5A27 0%, #1E3D1A 100%);
+            color: white;
+            border: none;
+            padding: 18px 24px;
+            border-radius: var(--radius-pill);
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 4px 12px rgba(45, 90, 39, 0.25);
+            text-decoration: none;
+        }
+
+        .btn-airbnb-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(45, 90, 39, 0.35);
+        }
+
+        .btn-airbnb-primary:active {
+            transform: translateY(0);
+        }
+
+        .booking-footnote {
+            text-align: center;
+            font-size: 0.775rem;
+            color: var(--text-secondary);
+            margin-top: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .section-padding {
+            padding: 80px 0;
+            border-top: 1px solid var(--border-light);
+        }
+
+        .section-header {
+            max-width: 680px;
+            margin-bottom: 48px;
+        }
+
+        .section-kicker {
+            font-size: 0.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--brand-accent);
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--text-primary);
+            line-height: 1.25;
+            margin-bottom: 12px;
+        }
+
+        @media (min-width: 768px) {
+            .section-title {
+                font-size: 2.35rem;
+            }
+        }
+
+        .section-desc {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        @media (min-width: 640px) {
+            .cards-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .cards-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .airbnb-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-medium);
+            border-radius: var(--radius-lg);
+            padding: 28px 24px;
+            transition: var(--transition-smooth);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .airbnb-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-4px);
+            border-color: var(--border-medium);
+        }
+
+        .card-icon-wrapper {
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius-md);
+            background: var(--brand-soft);
+            color: var(--brand-accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+
+        .card-body {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.55;
+        }
+
+        .science-section {
+            background: #FFFFFF;
+            padding: 80px 0;
+            border-top: 1px solid var(--border-light);
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 32px;
+            margin-top: 48px;
+        }
+
+        @media (min-width: 768px) {
+            .pillars-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .pillar-item {
+            position: relative;
+            padding-left: 20px;
+            border-left: 2px solid var(--brand-accent);
+        }
+
+        .pillar-num {
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: var(--brand-accent);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 6px;
+            display: block;
+        }
+
+        .pillar-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--text-primary);
+        }
+
+        .pillar-desc {
+            font-size: 0.925rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .host-section {
+            padding: 80px 0;
+        }
+
+        .host-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-medium);
+            border-radius: var(--radius-xl);
+            padding: 40px 28px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        @media (min-width: 768px) {
+            .host-card {
+                padding: 56px;
+            }
+        }
+
+        .host-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        @media (min-width: 860px) {
+            .host-grid {
+                grid-template-columns: 280px 1fr;
+                gap: 56px;
+            }
+        }
+
+        /* Host Profile Left Badge Frame */
+        .host-badge-box {
+            background: #FFF;
+            border: 1px solid var(--border-medium);
+            border-radius: var(--radius-xl);
+            padding: 24px;
+            text-align: center;
+            box-shadow: var(--shadow-md);
+            position: relative;
+        }
+
+        .host-avatar-wrapper {
+            position: relative;
+            width: 140px;
+            height: 140px;
+            margin: 0 auto 16px;
+        }
+
+        .host-avatar {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #FFF;
+        }
+
+        .verified-badge {
+            position: absolute;
+            bottom: 4px;
+            right: 4px;
+            background: var(--brand-accent);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid white;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .host-name {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .host-role {
+            font-size: 0.825rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .host-stats-row {
+            display: flex;
+            justify-content: space-around;
+            padding-top: 16px;
+            border-top: 1px solid var(--border-light);
+        }
+
+        .host-stat-item {
+            text-align: center;
+        }
+
+        .host-stat-val {
+            font-weight: 800;
+            font-size: 1.1rem;
+            color: var(--text-primary);
+        }
+
+        .host-stat-lbl {
+            font-size: 0.675rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .host-bio h3 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.25;
+        }
+
+        .host-bio p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.65;
+            margin-bottom: 16px;
+        }
+
+        .host-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 24px;
+        }
+
+        .tag-pill {
+            background: var(--bg-main);
+            border: 1px solid var(--border-light);
+            padding: 6px 14px;
+            border-radius: var(--radius-pill);
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .faq-section {
+            padding: 80px 0;
+            border-top: 1px solid var(--border-light);
+        }
+
+        .faq-accordion {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border-medium);
+            padding: 24px 0;
+        }
+
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            text-align: left;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s cubic-bezier(0, 1, 0, 1);
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+            margin-top: 14px;
+            transition: max-height 0.3s cubic-bezier(1, 0, 1, 0);
+        }
+
+        .faq-icon {
+            transition: transform 0.25s ease;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        .final-cta-card {
+            background: #111111;
+            color: #FFFFFF;
+            border-radius: var(--radius-xl);
+            padding: 48px 28px;
+            text-align: center;
+            margin: 40px auto 60px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        @media (min-width: 768px) {
+            .final-cta-card {
+                padding: 64px 48px;
+            }
+        }
+
+        .final-cta-card h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+
+        @media (min-width: 768px) {
+            .final-cta-card h2 {
+                font-size: 2.5rem;
+            }
+        }
+
+        .final-cta-card p {
+            color: #B0B0B0;
+            font-size: 1.05rem;
+            max-width: 600px;
+            margin: 0 auto 32px;
+        }
+
+        .btn-cta-white {
+            background: #FFFFFF;
+            color: #111111;
+            border: none;
+            padding: 18px 36px;
+            border-radius: var(--radius-pill);
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-cta-white:hover {
+            background: #F0F0F0;
+            transform: scale(1.03);
+        }
+
+        .floating-bar {
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #FFFFFF;
+            border: 1px solid var(--border-medium);
+            padding: 8px 12px 8px 20px;
+            border-radius: var(--radius-pill);
+            box-shadow: var(--shadow-floating);
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            width: calc(100% - 32px);
+            max-width: 480px;
+            justify-content: space-between;
+        }
+
+        .floating-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .floating-badge {
+            background: var(--brand-soft);
+            color: var(--brand-accent);
+            padding: 4px 8px;
+            border-radius: var(--radius-pill);
+            font-weight: 800;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+        }
+
+        .floating-text {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .floating-sub {
+            font-size: 0.725rem;
+            color: var(--text-secondary);
+            display: block;
+        }
+
+        .floating-btn {
+            background: #25D366; /* Official WhatsApp Color */
+            color: white;
+            border: none;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+            transition: var(--transition-smooth);
+            flex-shrink: 0;
+        }
+
+        .floating-btn:hover {
+            transform: scale(1.08);
+            background: #20BA5A;
+        }
+
+        /* Footer Style */
+        .footer {
+            border-top: 1px solid var(--border-light);
+            padding: 32px 0;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 12px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container header-inner">
+            <a href="#" class="logo-area">
+                <div class="logo-badge">L</div>
+                <div>
+                    <span class="logo-text">Liliana</span>
+                    <span class="logo-subtext">Psicologia & Neuropsicologia</span>
+                </div>
+            </a>
+            <a href="#agendar" class="header-cta">
+                <i data-lucide="calendar" style="width: 16px; height: 16px;"></i>
+                <span>Agendar Horário</span>
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="container">
+                <div class="hero-grid">
+                    <!-- Left Copy Column -->
+                    <div>
+                        <div class="airbnb-tag">
+                            <span class="pulse-dot"></span>
+                            <span>Fortaleza & Online • Vagas Limitadas</span>
+                        </div>
+
+                        <!-- Framing Effect (Loss Aversion) Headline -->
+                        <h1 class="hero-title">Quanto custa continuar fingindo que você dá conta de tudo?</h1>
+                        
+                        <p class="hero-subtitle">
+                            Você não precisa pifar para pedir ajuda. Uma abordagem neuropsicológica sem julgamentos para acolher a sobrecarga, devolver a clareza mental e reorganizar sua rotina.
+                        </p>
+
+                        <!-- Social Proof Chips -->
+                        <div style="display: flex; align-items: center; gap: 16px; margin-top: 32px; flex-wrap: wrap;">
+                            <div style="display: flex; align-items: center; gap: 6px;">
+                                <i data-lucide="shield-check" style="width: 20px; height: 20px; color: var(--brand-accent);"></i>
+                                <span style="font-size: 0.875rem; font-weight: 600;">Atendimento Sigiloso</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 6px;">
+                                <i data-lucide="map-pin" style="width: 20px; height: 20px; color: var(--brand-accent);"></i>
+                                <span style="font-size: 0.875rem; font-weight: 600;">Aldeota (Fortaleza) & Online</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Airbnb Style Interactive Booking Widget -->
+                    <div id="agendar" class="booking-widget">
+                        <div class="widget-header">
+                            <div>
+                                <span class="widget-price-title">Sessão Individual</span>
+                                <div class="widget-price-sub">Presencial ou Videoconferência</div>
+                            </div>
+                            <div class="widget-rating">
+                                <i data-lucide="star" class="star-icon"></i>
+                                <span>5.0</span>
+                                <span class="rating-count">(48 avaliações)</span>
+                            </div>
+                        </div>
+
+                        <!-- Dynamic Interactive Selection Grid -->
+                        <div class="booking-inputs-grid">
+                            <div class="input-row">
+                                <div class="input-box">
+                                    <span class="input-label">MODALIDADE</span>
+                                    <select id="modalidade-select" class="select-custom" onchange="updateBookingLink()">
+                                        <option value="Online">Online (Qualquer Lugar)</option>
+                                        <option value="Presencial">Presencial (Fortaleza)</option>
+                                    </select>
+                                </div>
+                                <div class="input-box">
+                                    <span class="input-label">PREFERÊNCIA</span>
+                                    <select id="turno-select" class="select-custom" onchange="updateBookingLink()">
+                                        <option value="Manhã">Turno Manhã</option>
+                                        <option value="Tarde">Turno Tarde</option>
+                                        <option value="Noite">Turno Noite</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="input-box-full">
+                                <span class="input-label">ANFITRIÃ</span>
+                                <div class="input-val">Liliana • CRP 11/XXXXX (Psicóloga & Neuropsicóloga)</div>
+                            </div>
+                        </div>
+
+                        <!-- Scarcity Trigger -->
+                        <div class="scarcity-banner">
+                            <i data-lucide="clock" style="width: 18px; height: 18px; flex-shrink: 0;"></i>
+                            <span>Restam apenas <strong id="vagas-count">3 horários</strong> para esta semana.</span>
+                        </div>
+
+                        <!-- CTA Button -->
+                        <a id="cta-whatsapp-link" href="#" class="btn-airbnb-primary" onclick="handleBookingClick(event)">
+                            <span>Garantir Meu Horário</span>
+                            <i data-lucide="chevron-right" style="width: 18px; height: 18px;"></i>
+                        </a>
+
+                        <div class="booking-footnote">
+                            <i data-lucide="lock" style="width: 14px; height: 14px;"></i>
+                            <span>Você não será cobrado agora. Alinhamento direto via WhatsApp.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-padding">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-kicker">Viés de Identificação</span>
+                    <h2 class="section-title">Você se reconhece em alguma destas situações?</h2>
+                    <p class="section-desc">A exaustão mental raramente dá avisos prévios. Ela se acumula silenciosamente nos detalhes da sua rotina.</p>
+                </div>
+
+                <div class="cards-grid">
+                    <!-- Card 1 -->
+                    <div class="airbnb-card">
+                        <div>
+                            <div class="card-icon-wrapper">
+                                <i data-lucide="battery-low" style="width: 24px; height: 24px;"></i>
+                            </div>
+                            <h3 class="card-title">Cansaço que não passa dormindo</h3>
+                            <p class="card-body">Você acorda já sentindo o peso do dia, com a sensação de que mesmo o fim de semana não é suficiente para recarregar.</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="airbnb-card">
+                        <div>
+                            <div class="card-icon-wrapper">
+                                <i data-lucide="brain-circuit" style="width: 24px; height: 24px;"></i>
+                            </div>
+                            <h3 class="card-title">Névoa Mental e Esquecimentos</h3>
+                            <p class="card-body">Lapsos de memória frequentes, falta de foco para concluir tarefas simples e a sensação de que sua mente tem abas demais abertas.</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="airbnb-card">
+                        <div>
+                            <div class="card-icon-wrapper">
+                                <i data-lucide="heart-handshake" style="width: 24px; height: 24px;"></i>
+                            </div>
+                            <h3 class="card-title">Culpa Constante ao Descansar</h3>
+                            <p class="card-body">Dificuldade em dizer "não" para demandas alheias e o sentimento permanente de estar falhando quando para um momento.</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="airbnb-card">
+                        <div>
+                            <div class="card-icon-wrapper">
+                                <i data-lucide="shield-alert" style="width: 24px; height: 24px;"></i>
+                            </div>
+                            <h3 class="card-title">Anestesia Emocional</h3>
+                            <p class="card-body">Sensação de estar vivendo no "piloto automático", respondendo às obrigações sem conseguir vivenciar alegria real.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="science-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-kicker">Abordagem Integrada</span>
+                    <h2 class="section-title">A ciência e o afeto como ferramentas de mudança</h2>
+                    <p class="section-desc">Entenda como a Neuropsicologia alinhada à Abordagem Centrada na Pessoa atua sem termos difíceis para organizar sua vida prática.</p>
+                </div>
+
+                <div class="pillars-grid">
+                    <div class="pillar-item">
+                        <span class="pillar-num">PILAR 01</span>
+                        <h3 class="pillar-title">Mapeamento Cognitivo</h3>
+                        <p class="pillar-desc">Compreendemos exatamente como seu cérebro processa o estresse, a memória e a tomada de decisão para estipular estratégias sob medida.</p>
+                    </div>
+
+                    <div class="pillar-item">
+                        <span class="pillar-num">PILAR 02</span>
+                        <h3 class="pillar-title">Escuta Sem Julgamentos</h3>
+                        <p class="pillar-desc">Um espaço seguro onde você não precisa "performar força". Acolhemos suas dores reais com total sigilo e respeito ao seu tempo.</p>
+                    </div>
+
+                    <div class="pillar-item">
+                        <span class="pillar-num">PILAR 03</span>
+                        <h3 class="pillar-title">Plano Prático de Autonomia</h3>
+                        <p class="pillar-desc">Direcionamento aplicável ao seu dia a dia. Você sai das sessões com clareza para impor limites e reestruturar sua rotina.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="host-section">
+            <div class="container">
+                <div class="host-card">
+                    <div class="host-grid">
+                        <!-- Host Left Card Frame -->
+                        <div class="host-badge-box">
+                            <div class="host-avatar-wrapper">
+                                <!-- Placeholder Image representing Liliana with warmth -->
+                                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400" alt="Liliana - Psicóloga" class="host-avatar">
+                                <div class="verified-badge" title="Profissional Verificada">
+                                    <i data-lucide="check" style="width: 18px; height: 18px;"></i>
+                                </div>
+                            </div>
+                            <h3 class="host-name">Liliana</h3>
+                            <div class="host-role">Psicóloga & Neuropsicóloga</div>
+
+                            <div class="host-stats-row">
+                                <div class="host-stat-item">
+                                    <div class="host-stat-val">48+</div>
+                                    <div class="host-stat-lbl">Avaliações</div>
+                                </div>
+                                <div class="host-stat-item">
+                                    <div class="host-stat-val">5.0 ★</div>
+                                    <div class="host-stat-lbl">Nota Geral</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Host Bio Content Right -->
+                        <div class="host-bio">
+                            <span class="section-kicker">Sua Anfitriã no Processo</span>
+                            <h3>"Minha missão é construir um ambiente onde você possa tirar a armadura."</h3>
+                            <p>Olá! Sou a Liliana. Atuo ajudando mulheres a saírem do estado permanente de sobrecarga e redefinirem suas trajetórias pessoais e profissionais com firmeza e leveza.</p>
+                            <p>Acredito que você não precisa abrir mão do seu bem-estar para construir uma vida relevante. Através da neuropsicologia e da escuta humanizada, investigamos as causas raízes do seu esgotamento e reconstruímos o caminho para a sua clareza mental.</p>
+
+                            <div class="host-tags">
+                                <span class="tag-pill">
+                                    <i data-lucide="award" style="width: 14px; height: 14px; color: var(--brand-accent);"></i>
+                                    Especialista em Neuropsicologia
+                                </span>
+                                <span class="tag-pill">
+                                    <i data-lucide="heart" style="width: 14px; height: 14px; color: var(--brand-accent);"></i>
+                                    Atendimento Humanizado
+                                </span>
+                                <span class="tag-pill">
+                                    <i data-lucide="map-pin" style="width: 14px; height: 14px; color: var(--brand-accent);"></i>
+                                    Fortaleza & Atendimento Global Online
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq-section">
+            <div class="container">
+                <div class="section-header" style="text-align: center; margin: 0 auto 48px;">
+                    <span class="section-kicker">Dúvidas Frequentes</span>
+                    <h2 class="section-title">Perguntas comuns antes de agendar</h2>
+                </div>
+
+                <div class="faq-accordion">
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            <span>Como funciona o primeiro atendimento com a Liliana?</span>
+                            <i data-lucide="chevron-down" class="faq-icon" style="width: 20px; height: 20px;"></i>
+                        </button>
+                        <div class="faq-answer">
+                            A primeira consulta é uma sessão de acolhimento e mapeamento inicial. Compreendemos seus momentos de maior sobrecarga, suas queixas cognitivas/emocionais atuais e traçamos juntos a melhor estratégia de acompanhamento.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            <span>O atendimento online tem a mesma eficácia que o presencial?</span>
+                            <i data-lucide="chevron-down" class="faq-icon" style="width: 20px; height: 20px;"></i>
+                        </button>
+                        <div class="faq-answer">
+                            Sim! A consulta online possui respaldo do Conselho Federal de Psicologia e oferece a mesma profundidade e sigilo do consultório físico, com a vantagem de encaixar perfeitamente na sua rotina sem deslocamentos.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            <span>Liliana atende planos de saúde/convênios?</span>
+                            <i data-lucide="chevron-down" class="faq-icon" style="width: 20px; height: 20px;"></i>
+                        </button>
+                        <div class="faq-answer">
+                            Os atendimentos são estritamente particulares para garantir tempo e atenção dedicados a cada paciente. No entanto, emitimos recibos e laudos necessários para que você solicite o reembolso integral ou parcial junto ao seu plano de saúde.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+            <div class="final-cta-card">
+                <h2>Pronta para dar o primeiro passo em direção à sua clareza?</h2>
+                <p>Reserve um tempo exclusivo para você. As vagas são limitadas para manter a excelência em cada acompanhamento.</p>
+                <a href="#agendar" class="btn-cta-white">
+                    <i data-lucide="calendar-check" style="width: 18px; height: 18px;"></i>
+                    <span>Verificar Horários Disponíveis</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Floating Bottom Bar (Airbnb Search Widget Vibe) -->
+    <div class="floating-bar">
+        <div class="floating-info">
+            <span class="floating-badge">Ativo</span>
+            <div>
+                <span class="floating-text">Agendamento Rápido</span>
+                <span class="floating-sub">Liliana • Resposta em minutos</span>
+            </div>
+        </div>
+        <a id="floating-whatsapp-btn" href="#" class="floating-btn" title="Falar no WhatsApp" onclick="handleBookingClick(event)">
+            <i data-lucide="message-circle" style="width: 22px; height: 22px;"></i>
+        </a>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2026 Liliana — Psicologia Clínica & Neuropsicologia. Todos os direitos reservados.</p>
+            <p style="margin-top: 4px; font-size: 0.775rem;">CRP 11/XXXXX • Aldeota, Fortaleza - CE</p>
+            <div class="footer-links">
+                <a href="#">Termos de Privacidade</a>
+                <span>•</span>
+                <a href="#">Código de Ética CFP</a>
+                <span>•</span>
+                <a href="#">Atendimento de Emergência: Ligue 188 (CVV)</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Phone Number Configuration (Replace with Liliana's real target WhatsApp number)
+        const PHONE_NUMBER = "5585999999999"; 
+
+        // Dynamic WhatsApp Link Builder based on User Selection
+        function buildWhatsAppURL() {
+            const modalidade = document.getElementById('modalidade-select') ? document.getElementById('modalidade-select').value : 'Online';
+            const turno = document.getElementById('turno-select') ? document.getElementById('turno-select').value : 'Manhã';
+            
+            const message = `Olá, Liliana! Vi seu site e gostaria de verificar os horários disponíveis para atendimento (${modalidade}) no turno da ${turno}.`;
+            return `https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(message)}`;
+        }
+
+        function updateBookingLink() {
+            const url = buildWhatsAppURL();
+            const mainCta = document.getElementById('cta-whatsapp-link');
+            const floatingBtn = document.getElementById('floating-whatsapp-btn');
+            
+            if (mainCta) mainCta.href = url;
+            if (floatingBtn) floatingBtn.href = url;
+        }
+
+        function handleBookingClick(event) {
+            const targetUrl = buildWhatsAppURL();
+            window.open(targetUrl, '_blank');
+        }
+
+        // FAQ Toggle Accordion
+        function toggleFaq(buttonElement) {
+            const item = buttonElement.parentElement;
+            const isActive = item.classList.contains('active');
+            
+            // Close all items
+            document.querySelectorAll('.faq-item').forEach(el => {
+                el.classList.remove('active');
+            });
+
+            // If wasn't active, open it
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        }
+
+        // Initialize state on load
+        window.addEventListener('DOMContentLoaded', () => {
+            updateBookingLink();
+        });
+    </script>
+</body>
+</html>
